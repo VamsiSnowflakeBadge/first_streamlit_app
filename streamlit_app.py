@@ -6,15 +6,13 @@ streamlit.text('🥗  Spinach and Beetroot')
 streamlit.text('Yoga and walk every day for 45 mins')
 streamlit.text('🥑Avacado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
 
 
 import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit') 
 
-fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocodo' , 'Strawberries'])
+fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocodo','Strawberries'])
 fruits_to_show = my_fruit_list.Loc[fruits_selected] 
 streamlit.dataframe(fruits_to_show)
 
